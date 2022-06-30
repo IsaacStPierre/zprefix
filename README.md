@@ -11,7 +11,7 @@ clone this repository
     git clone <url>
 
 Replace placeholder db name in docker-compose.yml (optional)
-- several lines read my_db, replace them with a new name if desired. (must ensure this is done before initialization of docker volumes, otherwise you will have to remove the volumes to trigger re-initialization)
+- several lines read dailyblogger_db, replace them with a new name if desired. (must ensure this is done before initialization of docker volumes, otherwise you will have to remove the volumes to trigger re-initialization)
 
 *Not sure why we need this next step, but it doesn't work without it*
 
