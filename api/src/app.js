@@ -97,7 +97,7 @@ app.get('/posts', (request, response) => {
     .join('users', 'posts.users_id', '=', 'users.users_id')
     .then(data => {
       if (data.length > 0) {
-        let responseData = data.map(post => ({ title: post.title, content: post.content, user: post.username }));
+        let responseData = data.map(post => ({ title: post.title, content: post.content, user: post.username, post_id: post.posts_id }));
         response.status(200).send(responseData)
       } else {
         response.status(404).send('No posts found.')
@@ -121,7 +121,7 @@ app.get('/posts/:id', (request, response) => {
 
 // ==========================================  posts path POST  ==========================================
 
-app.post('/posts', (request, response) => {
+app.post('/posts/add', (request, response) => {
   console.log(`servicing POST for /posts`)
   let keys = ['users_id', 'title', 'content']
   let validRequest = false

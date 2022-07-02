@@ -1,0 +1,21 @@
+.header{
+    width: 100%;
+    height: 50px;
+    background-color: rgb(223, 223, 223);
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+}
+.title,.navList{
+    flex:5;
+}
+.listButton {
+    display: inline;
+    margin-right: 20px;
+    font-size: 18px;
+    justify-content: center;
+    padding: 5%;
+    list-style: none;
+    cursor: pointer;
+}

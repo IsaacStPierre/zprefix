@@ -1,24 +1,24 @@
-import React, { useEffect, useState} from 'react';
-import config from './config'
+import React, { useState } from 'react';
+import Navbar from './components/navbar/Navbar';
+import Posts from './components/posts/Posts'
+import { AppContext } from './Context';
 
-const ApiUrl = config[process.env.REACT_APP_NODE_ENV || "development"].apiUrl;
+//const ApiUrl = config[process.env.REACT_APP_NODE_ENV || "development"].apiUrl;
 
 const App = () => {
 
-  let [names, setNames] = useState([ ]);
+  const [posts, setPosts] = useState([]);
 
-  useEffect(() => {
-    fetch(ApiUrl + "/users")
-      .then(response => response.json())
-      .then(data => setNames(data))
-      .catch(err => console.log(err))
-  }, []);
-
+  const provider = {posts, setPosts}
 
   return (
     <div>
-      App is running - good work:
-      { names.map(author => author.firstName + " ")}
+      <AppContext.Provider value={provider}>
+        <Navbar />
+        <div className='Home'>
+          <Posts />
+        </div>
+      </AppContext.Provider>
     </div>
   );
 }
